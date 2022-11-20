@@ -4,4 +4,7 @@
 
  Create, edit or delete people
 
- And assign or release book for a person
+ And assign or release book for a person.
+
+ In project  MVC model and JDBCTemplate for database are used
+ database - postgres
