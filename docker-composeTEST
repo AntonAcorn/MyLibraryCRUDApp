@@ -1,0 +1,25 @@
+version: '3.1'
+
+services:
+  jrtb-bot:
+    depends_on: ##сначала запускается jrtb-db. База данных
+      - jrtb-db
+    build:
+      context: .
+    environment:
+      DB_USERNAME: 12345
+      DB_PASSWORD: 12345
+    restart: always
+  jrtb-db:
+    image: mysql:8.0.31
+    restart: always
+    environment:
+      MYSQL_USER: 'testUser'
+      MYSQL_PASSWORD: '12345'
+      MYSQL_DATABASE: 'test_db'
+      MYSQL_ROOT_PASSWORD: '12345'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    command: --character-set-server=utf8 --collation-server=utf8_general_ci
